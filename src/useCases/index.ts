@@ -1,2 +1,2 @@
-export * from './createCategory';
-export * from './listCategories';
+export * from './createProperty';
+export * from './listProperties';
