@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Real Estate API Documentation",
+    "description": "This is a CRUD API for Real Estate business",
+    "version": "1.0.0",
+    "contact": {
+      "email": "felipedias.dev@gmail.com"
+    }
+  },
+  "paths": {
+    "/properties": {
+      "post": {
+        "tags": ["Property"],
+        "description": "Create a property",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Property name sample",
+                  "description": "Property description sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Property already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Property"],
+        "description": "List all properties",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
