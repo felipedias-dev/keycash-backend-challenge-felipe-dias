@@ -1,4 +1,4 @@
-import { Property } from '../../model/Property';
+import { Property } from '../../entities/Property';
 import { IPropertiesRepository } from '../../repositories/IPropertiesRepository';
 
 class ListPropertiesUseCase {
