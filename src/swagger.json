@@ -17,18 +17,15 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
+                "$ref": "#definitions/Property",
                 "example": {
-                  "name": "Property name sample",
-                  "description": "Property description sample"
+                  "title": "Property title sample",
+                  "description": "Property description sample",
+                  "category": "Property category sample",
+                  "area": 100,
+                  "useful_area": 80,
+                  "rooms": 3,
+                  "parking": 1
                 }
               }
             }
@@ -54,20 +51,40 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "description": {
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "#definitions/Property"
                   }
                 }
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Property": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "area": {
+          "type": "integer"
+        },
+        "useful_area": {
+          "type": "integer"
+        },
+        "rooms": {
+          "type": "integer"
+        },
+        "parking": {
+          "type": "integer"
         }
       }
     }
