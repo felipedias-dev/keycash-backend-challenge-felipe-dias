@@ -19,9 +19,9 @@
               "schema": {
                 "$ref": "#definitions/Property",
                 "example": {
-                  "title": "Property title sample",
-                  "description": "Property description sample",
-                  "category": "Property category sample",
+                  "title": "Sítio Bom Terreno",
+                  "description": "Excelente imóvel, numa ótima localização",
+                  "category": "sitio",
                   "area": 100,
                   "useful_area": 80,
                   "rooms": 3,
@@ -56,6 +56,91 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/properties/{id}": {
+      "put": {
+        "tags": ["Property"],
+        "description": "Update a property",
+        "parameters": [{
+          "in": "path",
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Id of the property to update"
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#definitions/Property",
+                "example": {
+                  "title": "Property title sample",
+                  "description": "Property description sample",
+                  "category": "Property category sample",
+                  "area": 100,
+                  "useful_area": 80,
+                  "rooms": 3,
+                  "parking": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Updated"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Property"],
+        "description": "List one property",
+        "parameters": [{
+          "in": "path",
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Id of the property to list"
+        }],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#definitions/Property"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Property"],
+        "description": "Delete property",
+        "parameters": [{
+          "in": "path",
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Id of the property to delete"
+        }],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#definitions/Property"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Property does not exist"
           }
         }
       }
