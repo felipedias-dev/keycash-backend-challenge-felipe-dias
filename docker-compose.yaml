@@ -10,9 +10,8 @@ services:
       - MYSQL_DATABASE=real_estate_db
     networks:
       - db_api-net
-    # volumes:
-      # - ./mysqldata:/var/lib/mysql
-      # - ./mysql:/docker-entrypoint-initdb.d
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
 
   adminer:
     image: adminer
