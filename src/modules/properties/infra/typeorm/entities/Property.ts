@@ -37,7 +37,7 @@ class Property {
   created_at: Date;
 
   @UpdateDateColumn()
-  updated_at?: Date;
+  updated_at: Date;
 
   constructor() {
     if (!this.id) {
