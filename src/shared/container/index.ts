@@ -1,9 +1,9 @@
-import { container } from 'tsyringe';
+import { container, delay } from 'tsyringe';
 
-import { IPropertiesRepository } from '../../repositories/IPropertiesRepository';
-import { PropertiesRepository } from '../../repositories/PropertiesRepository';
+import { IPropertiesRepository } from '@modules/properties/infra/typeorm/repositories/IPropertiesRepository';
+import { PropertiesRepository } from '@modules/properties/infra/typeorm/repositories/PropertiesRepository';
 
 container.registerSingleton<IPropertiesRepository>(
   'PropertiesRepository',
-  PropertiesRepository
+  delay(() => PropertiesRepository)
 );

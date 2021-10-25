@@ -1,6 +1,7 @@
-import { getRepository, Repository } from 'typeorm';
+import { EntityRepository, getRepository, Repository } from 'typeorm';
 
-import { Property } from '../entities/Property';
+import { Property } from '@modules/properties/infra/typeorm/entities/Property';
+
 import {
   IPropertiesRepository,
   ICreatePropertyDTO,
@@ -8,6 +9,7 @@ import {
   IUpdatePropertyDTO,
 } from './IPropertiesRepository';
 
+@EntityRepository(Property)
 class PropertiesRepository implements IPropertiesRepository {
   private repository: Repository<Property>;
 
@@ -69,11 +71,11 @@ class PropertiesRepository implements IPropertiesRepository {
     }
 
     if (useful_area) {
-      propertiesQuery.andWhere('useful_area = :useful_area', { useful_area });
+      propertiesQuery.andWhere('useful_area >= :useful_area', { useful_area });
     }
 
     if (parking) {
-      propertiesQuery.andWhere('parking = :parking', { parking });
+      propertiesQuery.andWhere('parking >= :parking', { parking });
     }
 
     const properties = await propertiesQuery.getMany();

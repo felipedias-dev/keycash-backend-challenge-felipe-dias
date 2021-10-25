@@ -16,8 +16,8 @@ propertiesRoutes.post('/', createPropertyController.handle);
 
 propertiesRoutes.get('/', listPropertiesController.handle);
 
-propertiesRoutes.put('/', updatePropertyController.handle);
+propertiesRoutes.put('/:id', updatePropertyController.handle);
 
-propertiesRoutes.delete('/', deletePropertyController.handle);
+propertiesRoutes.delete('/:id', deletePropertyController.handle);
 
 export { propertiesRoutes };
