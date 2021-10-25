@@ -29,16 +29,18 @@ class UpdatePropertyUseCase {
       throw new APIError('Property does not exist!', 400);
     }
 
-    await this.propertiesRepository.update({
+    const propertyToUpdate = {
       id,
-      title,
-      description,
-      category,
-      area,
-      useful_area,
-      rooms,
-      parking,
-    });
+      title: title || propertyExists.title,
+      description: description || propertyExists.description,
+      category: category || propertyExists.category,
+      area: area || propertyExists.area,
+      useful_area: useful_area || propertyExists.useful_area,
+      rooms: rooms || propertyExists.rooms,
+      parking: parking || propertyExists.parking,
+    };
+
+    await this.propertiesRepository.update(propertyToUpdate);
   }
 }
 
